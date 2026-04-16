@@ -10,10 +10,12 @@ Single-page site for the **Smart Tabs** browser extension: hero, features, widge
 
 ```bash
 git clone <url> && cd smart-tabs-site
-hugo server -D
+hugo server -D --baseURL http://localhost:1313/
 ```
 
-Site: [http://localhost:1313/](http://localhost:1313/)
+`baseURL` in `hugo.toml` matches the GitHub Pages path (`/smart-tabs-site/`). Without `--baseURL` above, the dev server mirrors that path; with it, pages are at the site root (e.g. `/donate/`).
+
+Site: [http://localhost:1313/](http://localhost:1313/) (with the flag) or [http://localhost:1313/smart-tabs-site/](http://localhost:1313/smart-tabs-site/) (default).
 
 ## Build
 

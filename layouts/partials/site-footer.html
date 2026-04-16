@@ -1,0 +1,20 @@
+<footer class="site-footer">
+  <div class="shell footer__inner">
+    <div class="footer__brand-block">
+      <p class="footer__brand">{{ .Site.Params.footer.product }}</p>
+      <p class="footer__tagline">{{ .Site.Params.footer.tagline }}</p>
+    </div>
+    <nav class="footer__nav" aria-label="Footer links">
+      {{- if .Site.Params.privacy_url }}
+      <a class="footer__link" href="{{ .Site.Params.privacy_url | relURL }}">Privacy</a>
+      {{- end }}
+      {{- if .Site.Params.donate_url }}
+      <a class="footer__link" href="{{ .Site.Params.donate_url | relURL }}">Donate</a>
+      {{- end }}
+      {{- if .Site.Params.contact_email }}
+      <a class="footer__link" href="mailto:{{ .Site.Params.contact_email }}">Contact</a>
+      {{- end }}
+    </nav>
+    <p class="footer__copy">© {{ now.Format "2006" }} {{ .Site.Params.footer.copyright | default .Site.Params.footer.product }}</p>
+  </div>
+</footer>

@@ -778,6 +778,119 @@ body {
   }
 }
 
+// Standalone legal / policy pages
+.page-doc {
+  padding: #{"clamp(2rem, 5vw, 3.5rem)"} 0 #{"clamp(3rem, 8vw, 5rem)"};
+}
+
+.page-doc__inner {
+  max-width: 52rem;
+}
+
+.page-doc__back {
+  margin: 0 0 1.5rem;
+}
+
+.page-doc__back-link {
+  color: $muted;
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $accent-soft;
+  }
+
+  @include focus-ring;
+  border-radius: 6px;
+}
+
+.prose--doc {
+  color: $text;
+
+  .prose--doc__title {
+    margin: 0 0 0.35rem;
+    font-size: #{"clamp(1.65rem, 3vw, 2.1rem)"};
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    color: $text;
+  }
+
+  > p:first-of-type {
+    margin-top: 0;
+    margin-bottom: 1.75rem;
+    font-size: 0.92rem;
+    color: $muted;
+  }
+
+  h2 {
+    margin: 1.75rem 0 0.65rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: $text;
+  }
+
+  p {
+    margin: 0 0 0.9rem;
+    line-height: 1.65;
+    color: $muted;
+  }
+
+  ul {
+    margin: 0 0 1rem;
+    padding-left: 1.35rem;
+  }
+
+  li {
+    margin: 0.35rem 0;
+    line-height: 1.55;
+  }
+
+  a {
+    color: $accent-soft;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+
+    &:hover {
+      color: lighten($accent-soft, 8%);
+    }
+
+    @include focus-ring;
+    border-radius: 4px;
+  }
+
+  strong {
+    color: $text;
+    font-weight: 600;
+  }
+}
+
+.donate-smart {
+  margin: 1.75rem 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+
+  .donate-smart__hint {
+    display: block;
+    font-size: 0.86rem;
+    color: $muted;
+    line-height: 1.45;
+    max-width: 28rem;
+  }
+}
+
+.donate-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.75rem 0 0;
+}
+
 // Footer
 .site-footer {
   border-top: 1px solid $border;

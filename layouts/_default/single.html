@@ -1,0 +1,13 @@
+{{ define "main" }}
+<a class="skip-link" href="#main">Skip to content</a>
+<main id="main" class="page-doc">
+  <div class="shell page-doc__inner">
+    <p class="page-doc__back"><a class="page-doc__back-link" href="{{ "/" | relURL }}">← Home</a></p>
+    <article class="prose prose--doc">
+      <h1 class="prose--doc__title">{{ .Title }}</h1>
+      {{ .Content }}
+    </article>
+  </div>
+</main>
+{{ partial "site-footer.html" . }}
+{{ end }}

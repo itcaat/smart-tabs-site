@@ -7,8 +7,18 @@ disableKinds = ['taxonomy', 'term']
 [params]
   description = 'Browser extension — smart tab management'
   store_url = 'https://chromewebstore.google.com/detail/smart-tabs/inogfehnhcebnnojoifmabiccedlllpl'
-  privacy_url = '#'
+  privacy_url = '/smart-tabs-site/privacy/'
+  donate_url = '/smart-tabs-site/donate/'
   contact_email = ''
+
+[params.donate]
+  cloudtips_url = 'https://pay.cloudtips.ru/p/ca4ff0b0'
+  nowpayments_url = 'https://nowpayments.io/donation/itcaat'
+
+[params.footer]
+  product = 'Smart Tabs'
+  tagline = 'Smarter tabs in the browser.'
+  copyright = 'Smart Tabs'
 
 [markup.goldmark.renderer]
   unsafe = true

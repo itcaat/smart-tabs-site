@@ -112,9 +112,4 @@ install:
   title: Ready to try Smart Tabs?
   subtitle: One-click install from the official extension store.
   button_label: Install extension
-
-footer:
-  product: Smart Tabs
-  tagline: Smarter tabs in the browser.
-  copyright: Smart Tabs
 ---
