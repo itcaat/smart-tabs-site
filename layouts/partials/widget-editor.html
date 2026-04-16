@@ -1,0 +1,43 @@
+{{- $code := strings.TrimSpace .code -}}
+{{- $name := .name | default .title -}}
+{{- $panel := .panel_title | default "Widget" -}}
+{{- $l := lower (.lang | default "javascript") -}}
+{{- $hl := "javascript" -}}
+{{- if eq $l "json" }}{{ $hl = "json" }}{{ else if eq $l "css" }}{{ $hl = "css" }}{{ else if or (eq $l "js") (eq $l "javascript") }}{{ $hl = "javascript" }}{{ end -}}
+<div class="widget-editor" aria-label="{{ $panel }}: {{ $name }}">
+  <p class="widget-editor__panel-title">{{ $panel }}</p>
+  {{- with .description }}
+  <p class="widget-editor__lead">{{ . }}</p>
+  {{- end }}
+  <div class="widget-editor__top">
+    <div class="widget-editor__name-field">
+      <input
+        class="widget-editor__input widget-editor__input--name"
+        type="text"
+        readonly
+        tabindex="-1"
+        value="{{ $name }}"
+      >
+    </div>
+    <span class="widget-editor__icon-btn" role="presentation">Icon</span>
+  </div>
+  {{- $link := .link | default "" -}}
+  <input
+    class="widget-editor__input widget-editor__input--link"
+    type="text"
+    readonly
+    tabindex="-1"
+    {{- if $link }}
+    value="{{ $link }}"
+    {{- else }}
+    value=""
+    placeholder="Ссылка (необязательно, откроется по клику)"
+    {{- end }}
+  >
+  <div class="widget-editor__code-wrap">
+    <div class="widget-editor__pre widget-editor__pre--highlight" tabindex="0">
+      {{ highlight $code $hl "lineNos=false,lineNumbersInTable=false,anchorLineNos=false" }}
+    </div>
+    <span class="widget-editor__resize" aria-hidden="true"></span>
+  </div>
+</div>

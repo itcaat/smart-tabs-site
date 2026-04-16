@@ -1,0 +1,13 @@
+{{- $title := .title | default "" -}}
+{{- $parts := split $title " " -}}
+{{- $n := len $parts -}}
+{{- if le $n 1 -}}
+<span class="hero__title-text">{{ $title }}</span>
+{{- else -}}
+{{- range $i, $w := $parts -}}
+{{- if ne $i 0 }} {{ end -}}
+{{- if eq $i (sub $n 1) -}}<span class="hero__title-accent">{{ $w }}</span>
+{{- else -}}<span class="hero__title-text">{{ $w }}</span>
+{{- end -}}
+{{- end -}}
+{{- end -}}

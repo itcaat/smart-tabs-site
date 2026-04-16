@@ -1,0 +1,10 @@
+{{- $n := . | int -}}
+{{- if eq $n 0 -}}
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6 8h20v3H6V8zm0 6.5h20v3H6v-3zm0 6.5h14v3H6v-3z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+{{- else if eq $n 1 -}}
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="14" cy="14" r="7" stroke="currentColor" stroke-width="1.6"/><path d="M20 20l6 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+{{- else if eq $n 2 -}}
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M8 22V10l6-4 10 6v10l-6 4-10-6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 6v12l10 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+{{- else -}}
+<svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M16 6l2.2 6.8H25l-5.5 4 2.1 6.5L16 19.3l-5.6 4 2.1-6.5L7 12.8h6.8L16 6z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>
+{{- end -}}

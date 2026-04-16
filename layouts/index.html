@@ -1,0 +1,204 @@
+{{ define "main" }}
+<a class="skip-link" href="#main">К содержимому</a>
+<header class="site-header">
+  <div class="shell header__inner">
+    <a class="logo" href="{{ "/" | relURL }}">
+      <span class="logo__mark" aria-hidden="true"></span>
+      <span class="logo__text">{{ .Site.Title }}</span>
+    </a>
+
+    <nav class="nav nav--desktop" aria-label="Основная навигация">
+      <a class="nav__link" href="#features">Возможности</a>
+      <a class="nav__link" href="#widgets">Виджеты</a>
+      <a class="nav__link" href="#trust">Доверие</a>
+      <a class="btn btn--ghost btn--sm" href="{{ .Site.Params.store_url | default "#install" }}">Установить</a>
+    </nav>
+
+    <details class="menu-drawer">
+      <summary class="menu-drawer__summary" aria-label="Открыть меню">
+        <span class="menu-drawer__burger" aria-hidden="true"></span>
+      </summary>
+      <div class="menu-drawer__panel">
+        <a class="menu-drawer__link" href="#features">Возможности</a>
+        <a class="menu-drawer__link" href="#widgets">Виджеты</a>
+        <a class="menu-drawer__link" href="#trust">Доверие</a>
+        <a class="menu-drawer__link menu-drawer__link--cta" href="{{ .Site.Params.store_url | default "#install" }}">Установить</a>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__noise" aria-hidden="true"></div>
+    <div class="hero__glow hero__glow--1" aria-hidden="true"></div>
+    <div class="hero__glow hero__glow--2" aria-hidden="true"></div>
+    <div class="shell hero__grid">
+      <div class="hero__copy">
+        {{- with .Params.hero }}
+        <p class="eyebrow">{{ .eyebrow }}</p>
+        <h1 id="hero-title" class="hero__title">{{ partial "hero-title.html" . }}</h1>
+        <p class="hero__subtitle">{{ .subtitle }}</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="{{ .primary_anchor | default "#install" }}">{{ .primary_label }}</a>
+          <a class="btn btn--secondary" href="{{ .secondary_anchor | default "#features" }}">{{ .secondary_label }}</a>
+        </div>
+        {{- end }}
+        {{- with .Params.highlights }}
+        <ul class="hero-highlights">
+          {{- range . }}
+          <li class="hero-highlights__item">{{ . }}</li>
+          {{- end }}
+        </ul>
+        {{- end }}
+      </div>
+      <div class="hero__visual">
+        <div class="browser-frame">
+          <div class="browser-frame__chrome" aria-hidden="true">
+            <span class="browser-frame__dot"></span>
+            <span class="browser-frame__dot"></span>
+            <span class="browser-frame__dot"></span>
+            <span class="browser-frame__url">smart-tabs …</span>
+          </div>
+          <figure class="hero-card">
+            {{- $hp := .Params.hero.preview }}
+            {{- with $hp }}
+            <img
+              src="{{ .image }}"
+              alt="{{ .alt | default "Интерфейс Smart Tabs" }}"
+              width="960"
+              height="600"
+              loading="eager"
+              decoding="async"
+            >
+            <figcaption class="hero-card__cap">{{ .caption }}</figcaption>
+            {{- else }}
+            <img
+              src="/images/placeholder-hero.svg"
+              alt="Интерфейс Smart Tabs"
+              width="960"
+              height="600"
+              loading="eager"
+              decoding="async"
+            >
+            <figcaption class="hero-card__cap">Обзор интерфейса</figcaption>
+            {{- end }}
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features" class="section section--features">
+    <div class="shell">
+      <header class="section__head">
+        <h2 class="section__title">Возможности</h2>
+        {{- with .Params.features.lead }}
+        <p class="section__lead">{{ . }}</p>
+        {{- end }}
+      </header>
+      <ul class="feature-grid">
+        {{- range $i, $f := .Params.features.items }}
+        <li class="feature-card">
+          <div class="feature-card__icon" aria-hidden="true">
+            {{- partial "icon-feature.html" (mod (int $i) 4) }}
+          </div>
+          <h3 class="feature-card__title">{{ $f.title }}</h3>
+          <p class="feature-card__text">{{ $f.description }}</p>
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+
+  {{- with .Params.widgets }}
+  <section id="widgets" class="section section--widgets">
+    <div class="shell">
+      <header class="section__head">
+        <h2 class="section__title">{{ .title }}</h2>
+        {{- with .lead }}
+        <p class="section__lead">{{ . }}</p>
+        {{- end }}
+      </header>
+      <div class="widgets-grid">
+        {{- range .items }}
+        <article class="widget-card">
+          <h3 class="widget-card__title u-visually-hidden">{{ .title }}</h3>
+          {{- partial "widget-editor.html" . }}
+        </article>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+  {{- end }}
+
+  {{- with .Params.trust }}
+  <section id="trust" class="section section--trust">
+    <div class="shell">
+      <header class="section__head section__head--center">
+        <h2 class="section__title">{{ .title }}</h2>
+        {{- with .lead }}
+        <p class="section__lead">{{ . }}</p>
+        {{- end }}
+      </header>
+      <ul class="trust-grid">
+        {{- range .items }}
+        <li class="trust-card">
+          <div class="trust-card__icon">{{ partial "icon-trust.html" .icon }}</div>
+          <h3 class="trust-card__title">{{ .title }}</h3>
+          <p class="trust-card__text">{{ .description }}</p>
+        </li>
+        {{- end }}
+      </ul>
+    </div>
+  </section>
+  {{- end }}
+
+  <section id="install" class="section section--cta">
+    <div class="shell cta">
+      <div class="cta__inner">
+        {{- with .Params.install }}
+        <h2 class="cta__title">{{ .title }}</h2>
+        <p class="cta__subtitle">{{ .subtitle }}</p>
+        <a class="btn btn--primary btn--lg" href="{{ $.Site.Params.store_url | default "#install" }}">{{ .button_label }}</a>
+        <p class="cta__note">{{ .note }}</p>
+        {{- end }}
+      </div>
+    </div>
+  </section>
+
+  {{- with .Content }}
+  <section class="section section--extra">
+    <div class="shell prose">
+      {{ . }}
+    </div>
+  </section>
+  {{- end }}
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer__inner">
+    <div class="footer__brand-block">
+      <p class="footer__brand">{{ .Params.footer.product }}</p>
+      <p class="footer__tagline">{{ .Params.footer.tagline }}</p>
+    </div>
+    <nav class="footer__nav" aria-label="Ссылки в подвале">
+      {{- if .Site.Params.privacy_url }}
+      <a class="footer__link" href="{{ .Site.Params.privacy_url }}">Конфиденциальность</a>
+      {{- end }}
+      {{- if .Site.Params.contact_email }}
+      <a class="footer__link" href="mailto:{{ .Site.Params.contact_email }}">Связаться</a>
+      {{- end }}
+    </nav>
+    <p class="footer__copy">© {{ now.Format "2006" }} {{ .Params.footer.copyright | default .Params.footer.product }}</p>
+  </div>
+</footer>
+<script>
+document.querySelectorAll(".menu-drawer__link").forEach(function (a) {
+  a.addEventListener("click", function () {
+    var d = a.closest("details");
+    if (d) d.open = false;
+  });
+});
+</script>
+{{ end }}
