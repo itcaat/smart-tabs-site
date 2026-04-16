@@ -1,11 +1,11 @@
 baseURL = 'https://smart-tabs.example.com/'
-languageCode = 'ru'
+languageCode = 'en'
 title = 'Smart Tabs'
-defaultContentLanguage = 'ru'
+defaultContentLanguage = 'en'
 disableKinds = ['taxonomy', 'term']
 
 [params]
-  description = 'Расширение для браузера — умная работа с вкладками'
+  description = 'Browser extension — smart tab management'
   store_url = '#install'
   privacy_url = '#'
   contact_email = ''
@@ -13,7 +13,6 @@ disableKinds = ['taxonomy', 'term']
 [markup.goldmark.renderer]
   unsafe = true
 
-# Подсветка Chroma: классы + отдельный CSS (без inline-стилей в разметке)
 [markup.highlight]
 codeFences = true
 guessSyntax = true

@@ -150,6 +150,7 @@ body {
   display: none;
   align-items: center;
   gap: 0.25rem 1.15rem;
+  margin-left: auto;
 
   @media (min-width: 880px) {
     display: flex;
@@ -177,9 +178,11 @@ body {
   position: relative;
   z-index: 60;
   display: block;
+  margin-left: auto;
 
   @media (min-width: 880px) {
     display: none;
+    margin-left: 0;
   }
 }
 
@@ -402,9 +405,13 @@ details.menu-drawer[open] .menu-drawer__summary {
 }
 
 .hero__title-accent {
+  display: inline-block;
+  /* background-clip: text uses the background box; extra inline padding avoids clipping the last glyph */
+  padding-inline-end: 0.08em;
   background: linear-gradient(120deg, $accent-soft 0%, lighten($violet, 6%) 55%, $violet 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 

@@ -1,46 +1,46 @@
 ---
 title: Smart Tabs
-meta_description: Расширение для браузера — порядок во вкладках, быстрый поиск и сохранённые сессии без лишнего шума.
+meta_description: Browser extension — tidy tabs, fast search, and saved sessions without clutter.
 
 hero:
-  eyebrow: Для Chrome, Edge, Brave и других Chromium-браузеров
+  eyebrow: For Chrome, Edge, Brave, and other Chromium-based browsers
   title: Smart Tabs
   subtitle: >
-    Находите нужную вкладку за секунды, группируйте задачи и возвращайтесь к сохранённым сессиям —
-    без перегруженного интерфейса и лишних кликов.
+    Find the right tab in seconds, group work by task, and return to saved sessions —
+    without a noisy UI or extra clicks.
   preview:
     image: /images/placeholder-hero.svg
-    alt: Интерфейс Smart Tabs — обзор панели и списка вкладок
-    caption: Обзор интерфейса
-  primary_label: Установить
+    alt: Smart Tabs interface — panel and tab list overview
+    caption: Interface overview
+  primary_label: Install
   primary_anchor: "#install"
-  secondary_label: Смотреть возможности
+  secondary_label: See features
   secondary_anchor: "#features"
 
 highlights:
-  - Поиск по заголовку и адресу среди открытых вкладок
-  - Группы под проекты и контексты работы
-  - Сессии и аккуратный UI без отвлечений
+  - Search open tabs by title or URL
+  - Groups for projects and contexts
+  - Sessions and a calm, minimal UI
 
 features:
-  lead: Всё необходимое для спокойной работы с десятками и сотнями вкладок — в одной панели расширения.
+  lead: Everything you need to stay calm with dozens or hundreds of tabs — in one extension panel.
   items:
-    - title: Умная группировка
-      description: Собирайте вкладки по смыслу — проект, исследование, обучение. Меньше хаоса в строке вкладок.
-    - title: Мгновенный поиск
-      description: Введите часть заголовка или URL — список сузится до релевантного. Без перебора вручную.
-    - title: Сессии и снимки
-      description: Сохраняйте наборы вкладок и открывайте их снова, когда задача возвращается.
-    - title: Минимум шума
-      description: Чистый интерфейс и предсказуемое поведение — фокус на задаче, а не на расширении.
+    - title: Smart grouping
+      description: Group tabs by meaning — project, research, learning. Less chaos in the tab strip.
+    - title: Instant search
+      description: Type part of a title or URL — the list narrows to what matters. No manual hunting.
+    - title: Sessions and snapshots
+      description: Save sets of tabs and reopen them when the task comes back.
+    - title: Minimal noise
+      description: A clean UI and predictable behaviour — focus on the task, not the extension.
 
 widgets:
-  title: Виджеты
-  lead: Примеры источников данных для виджетов — PromQL, публичные API и геокодинг + погода.
+  title: Widgets
+  lead: Example data sources for widgets — PromQL, public APIs, and geocoding + weather.
   items:
-    - title: Метрика через Prometheus
-      description: Запрос к Prometheus (PromQL) и разбор ответа для числового виджета.
-      name: Метрика (напр. Req rate)
+    - title: Prometheus metric
+      description: Prometheus (PromQL) query and parsing the response for a numeric widget.
+      name: Metric (e.g. req rate)
       link: ""
       code: |
         const query = 'sum(increase(ota_apps_search_request_api_total[1m]))';
@@ -51,9 +51,9 @@ widgets:
         const val = data.data.result[0]?.value[1];
         const rounded = Math.round(Number(val));
         return { value: rounded, label: 'Reqs/5m', color: '#10b981' };
-    - title: Курс BTC (Coinbase)
-      description: Спотовая цена Bitcoin и форматирование с цветом по порогу.
-      name: Курс BTC
+    - title: BTC price (Coinbase)
+      description: Bitcoin spot price and formatting with a colour threshold.
+      name: BTC price
       link: https://api.coinbase.com/v2/prices/BTC-USD/spot
       code: |
         const res = await fetchData('https://api.coinbase.com/v2/prices/BTC-USD/spot');
@@ -61,9 +61,9 @@ widgets:
         const price = Math.round(Number(data.data.amount));
         const formatted = price >= 1000 ? Math.round(price / 1000) + 'k' : price;
         return { value: '$' + formatted, label: 'BTC', color: price >= 80000 ? '#22c55e' : '#ef4444' };
-    - title: Погода по городу
-      description: Геокодинг Open-Meteo и прогноз current — температура и «ощущается как».
-      name: Погода в городе
+    - title: Weather by city
+      description: Open-Meteo geocoding and current forecast — temperature and “feels like”.
+      name: City weather
       link: ""
       code: |
         const city = 'St Petersburg';
@@ -92,27 +92,27 @@ widgets:
         };
 
 trust:
-  title: Надёжность и прозрачность
-  lead: Расширение работает в вашем браузере; уточните детали политики при публикации.
+  title: Trust and transparency
+  lead: The extension runs in your browser; publish policy details when you ship.
   items:
     - icon: lock
-      title: Данные под вашим контролем
-      description: Контент открытых страниц не покидает браузер в обход ваших ожиданий — опишите модель в политике конфиденциальности.
+      title: Your data stays with you
+      description: Describe how page content is handled — users expect a clear privacy policy.
     - icon: browsers
-      title: Chromium-семейство
-      description: Рассчитано на Chrome и другие браузеры на базе Chromium. Про Safari/Firefox — по мере поддержки.
+      title: Chromium family
+      description: Built for Chrome and other Chromium browsers. Safari/Firefox when you add support.
     - icon: shield
-      title: Открытость
-      description: Опубликуйте политику и контакты — пользователям проще доверять расширению из магазина.
+      title: Openness
+      description: Publish a policy and contact — it helps people trust an extension from the store.
 
 install:
-  title: Готовы попробовать Smart Tabs?
-  subtitle: Установка в один клик из официального магазина расширений.
-  button_label: Установить расширение
-  note: После публикации подставьте ссылку на страницу в Chrome Web Store в настройках сайта (параметр store_url).
+  title: Ready to try Smart Tabs?
+  subtitle: One-click install from the official extension store.
+  button_label: Install extension
+  note: After release, set the Chrome Web Store URL in site config (store_url).
 
 footer:
   product: Smart Tabs
-  tagline: Умная работа с вкладками в браузере.
+  tagline: Smarter tabs in the browser.
   copyright: Smart Tabs
 ---

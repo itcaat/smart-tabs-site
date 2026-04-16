@@ -1,5 +1,5 @@
 {{ define "main" }}
-<a class="skip-link" href="#main">К содержимому</a>
+<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header">
   <div class="shell header__inner">
     <a class="logo" href="{{ "/" | relURL }}">
@@ -7,22 +7,22 @@
       <span class="logo__text">{{ .Site.Title }}</span>
     </a>
 
-    <nav class="nav nav--desktop" aria-label="Основная навигация">
-      <a class="nav__link" href="#features">Возможности</a>
-      <a class="nav__link" href="#widgets">Виджеты</a>
-      <a class="nav__link" href="#trust">Доверие</a>
-      <a class="btn btn--ghost btn--sm" href="{{ .Site.Params.store_url | default "#install" }}">Установить</a>
+    <nav class="nav nav--desktop" aria-label="Main navigation">
+      <a class="nav__link" href="#features">Features</a>
+      <a class="nav__link" href="#widgets">Widgets</a>
+      <a class="nav__link" href="#trust">Trust</a>
+      <a class="btn btn--ghost btn--sm" href="{{ .Site.Params.store_url | default "#install" }}">Install</a>
     </nav>
 
     <details class="menu-drawer">
-      <summary class="menu-drawer__summary" aria-label="Открыть меню">
+      <summary class="menu-drawer__summary" aria-label="Open menu">
         <span class="menu-drawer__burger" aria-hidden="true"></span>
       </summary>
       <div class="menu-drawer__panel">
-        <a class="menu-drawer__link" href="#features">Возможности</a>
-        <a class="menu-drawer__link" href="#widgets">Виджеты</a>
-        <a class="menu-drawer__link" href="#trust">Доверие</a>
-        <a class="menu-drawer__link menu-drawer__link--cta" href="{{ .Site.Params.store_url | default "#install" }}">Установить</a>
+        <a class="menu-drawer__link" href="#features">Features</a>
+        <a class="menu-drawer__link" href="#widgets">Widgets</a>
+        <a class="menu-drawer__link" href="#trust">Trust</a>
+        <a class="menu-drawer__link menu-drawer__link--cta" href="{{ .Site.Params.store_url | default "#install" }}">Install</a>
       </div>
     </details>
   </div>
@@ -65,7 +65,7 @@
             {{- with $hp }}
             <img
               src="{{ .image }}"
-              alt="{{ .alt | default "Интерфейс Smart Tabs" }}"
+              alt="{{ .alt | default "Smart Tabs interface" }}"
               width="960"
               height="600"
               loading="eager"
@@ -75,13 +75,13 @@
             {{- else }}
             <img
               src="/images/placeholder-hero.svg"
-              alt="Интерфейс Smart Tabs"
+              alt="Smart Tabs interface"
               width="960"
               height="600"
               loading="eager"
               decoding="async"
             >
-            <figcaption class="hero-card__cap">Обзор интерфейса</figcaption>
+            <figcaption class="hero-card__cap">Interface overview</figcaption>
             {{- end }}
           </figure>
         </div>
@@ -92,7 +92,7 @@
   <section id="features" class="section section--features">
     <div class="shell">
       <header class="section__head">
-        <h2 class="section__title">Возможности</h2>
+        <h2 class="section__title">Features</h2>
         {{- with .Params.features.lead }}
         <p class="section__lead">{{ . }}</p>
         {{- end }}
@@ -182,12 +182,12 @@
       <p class="footer__brand">{{ .Params.footer.product }}</p>
       <p class="footer__tagline">{{ .Params.footer.tagline }}</p>
     </div>
-    <nav class="footer__nav" aria-label="Ссылки в подвале">
+    <nav class="footer__nav" aria-label="Footer links">
       {{- if .Site.Params.privacy_url }}
-      <a class="footer__link" href="{{ .Site.Params.privacy_url }}">Конфиденциальность</a>
+      <a class="footer__link" href="{{ .Site.Params.privacy_url }}">Privacy</a>
       {{- end }}
       {{- if .Site.Params.contact_email }}
-      <a class="footer__link" href="mailto:{{ .Site.Params.contact_email }}">Связаться</a>
+      <a class="footer__link" href="mailto:{{ .Site.Params.contact_email }}">Contact</a>
       {{- end }}
     </nav>
     <p class="footer__copy">© {{ now.Format "2006" }} {{ .Params.footer.copyright | default .Params.footer.product }}</p>
