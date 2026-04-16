@@ -1,4 +1,4 @@
-baseURL = 'https://smart-tabs.example.com/'
+baseURL = 'https://itcaat.github.io/smart-tabs-site/'
 languageCode = 'en'
 title = 'Smart Tabs'
 defaultContentLanguage = 'en'
@@ -6,7 +6,7 @@ disableKinds = ['taxonomy', 'term']
 
 [params]
   description = 'Browser extension — smart tab management'
-  store_url = '#install'
+  store_url = 'https://chromewebstore.google.com/detail/smart-tabs/inogfehnhcebnnojoifmabiccedlllpl'
   privacy_url = '#'
   contact_email = ''
 

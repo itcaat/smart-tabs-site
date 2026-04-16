@@ -9,13 +9,16 @@ hero:
     Find the right tab in seconds, group work by task, and return to saved sessions —
     without a noisy UI or extra clicks.
   preview:
-    image: /images/placeholder-hero.svg
-    alt: Smart Tabs interface — panel and tab list overview
-    caption: Interface overview
+    image: /images/smart-tabs-hero.png
+    width: 3434
+    height: 1782
+    alt: Smart Tabs panel — tabs grouped by site, search bar, and widgets
+    caption: Group by domain, search, quick links, and widgets
   primary_label: Install
-  primary_anchor: "#install"
   secondary_label: See features
   secondary_anchor: "#features"
+  widgets_label: Widgets
+  widgets_anchor: "#widgets"
 
 highlights:
   - Search open tabs by title or URL
@@ -109,7 +112,6 @@ install:
   title: Ready to try Smart Tabs?
   subtitle: One-click install from the official extension store.
   button_label: Install extension
-  note: After release, set the Chrome Web Store URL in site config (store_url).
 
 footer:
   product: Smart Tabs

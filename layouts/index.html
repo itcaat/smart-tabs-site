@@ -1,33 +1,5 @@
 {{ define "main" }}
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="site-header">
-  <div class="shell header__inner">
-    <a class="logo" href="{{ "/" | relURL }}">
-      <span class="logo__mark" aria-hidden="true"></span>
-      <span class="logo__text">{{ .Site.Title }}</span>
-    </a>
-
-    <nav class="nav nav--desktop" aria-label="Main navigation">
-      <a class="nav__link" href="#features">Features</a>
-      <a class="nav__link" href="#widgets">Widgets</a>
-      <a class="nav__link" href="#trust">Trust</a>
-      <a class="btn btn--ghost btn--sm" href="{{ .Site.Params.store_url | default "#install" }}">Install</a>
-    </nav>
-
-    <details class="menu-drawer">
-      <summary class="menu-drawer__summary" aria-label="Open menu">
-        <span class="menu-drawer__burger" aria-hidden="true"></span>
-      </summary>
-      <div class="menu-drawer__panel">
-        <a class="menu-drawer__link" href="#features">Features</a>
-        <a class="menu-drawer__link" href="#widgets">Widgets</a>
-        <a class="menu-drawer__link" href="#trust">Trust</a>
-        <a class="menu-drawer__link menu-drawer__link--cta" href="{{ .Site.Params.store_url | default "#install" }}">Install</a>
-      </div>
-    </details>
-  </div>
-</header>
-
 <main id="main">
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero__noise" aria-hidden="true"></div>
@@ -40,8 +12,9 @@
         <h1 id="hero-title" class="hero__title">{{ partial "hero-title.html" . }}</h1>
         <p class="hero__subtitle">{{ .subtitle }}</p>
         <div class="hero__actions">
-          <a class="btn btn--primary" href="{{ .primary_anchor | default "#install" }}">{{ .primary_label }}</a>
+          <a class="btn btn--primary" href="{{ .primary_anchor | default ($.Site.Params.store_url | default "#install") }}">{{ .primary_label }}</a>
           <a class="btn btn--secondary" href="{{ .secondary_anchor | default "#features" }}">{{ .secondary_label }}</a>
+          <a class="btn btn--secondary" href="{{ .widgets_anchor | default "#widgets" }}">{{ .widgets_label | default "Widgets" }}</a>
         </div>
         {{- end }}
         {{- with .Params.highlights }}
@@ -64,17 +37,17 @@
             {{- $hp := .Params.hero.preview }}
             {{- with $hp }}
             <img
-              src="{{ .image }}"
+              src="{{ printf "%s%s" $.Site.BaseURL (strings.TrimPrefix "/" .image) }}"
               alt="{{ .alt | default "Smart Tabs interface" }}"
-              width="960"
-              height="600"
+              width="{{ .width | default 960 }}"
+              height="{{ .height | default 600 }}"
               loading="eager"
               decoding="async"
             >
             <figcaption class="hero-card__cap">{{ .caption }}</figcaption>
             {{- else }}
             <img
-              src="/images/placeholder-hero.svg"
+              src="{{ printf "%s%s" $.Site.BaseURL "images/placeholder-hero.svg" }}"
               alt="Smart Tabs interface"
               width="960"
               height="600"
@@ -161,7 +134,9 @@
         <h2 class="cta__title">{{ .title }}</h2>
         <p class="cta__subtitle">{{ .subtitle }}</p>
         <a class="btn btn--primary btn--lg" href="{{ $.Site.Params.store_url | default "#install" }}">{{ .button_label }}</a>
-        <p class="cta__note">{{ .note }}</p>
+        {{- with .note }}
+        <p class="cta__note">{{ . }}</p>
+        {{- end }}
         {{- end }}
       </div>
     </div>
@@ -193,12 +168,4 @@
     <p class="footer__copy">© {{ now.Format "2006" }} {{ .Params.footer.copyright | default .Params.footer.product }}</p>
   </div>
 </footer>
-<script>
-document.querySelectorAll(".menu-drawer__link").forEach(function (a) {
-  a.addEventListener("click", function () {
-    var d = a.closest("details");
-    if (d) d.open = false;
-  });
-});
-</script>
 {{ end }}
