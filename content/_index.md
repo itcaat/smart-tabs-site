@@ -1,41 +1,57 @@
 ---
 title: Smart Tabs
-meta_description: Browser extension — tidy tabs, fast search, and saved sessions without clutter.
+meta_description: Replace your new tab with a Smart Tabs dashboard — tabs grouped by site, widgets, Quick Dial, search, and dark mode.
 
 hero:
   eyebrow: For Chrome, Edge, Brave, and other Chromium-based browsers
   title: Smart Tabs
   subtitle: >
-    Find the right tab in seconds, group work by task, and return to saved sessions —
-    without a noisy UI or extra clicks.
+    Smart Tabs replaces your new tab page with a sleek, powerful dashboard that brings order to your browser.
+    It automatically groups all your open tabs by website, making it effortless to find, switch, or close tabs with a single click.
+    Pin your go-to sites, search across all tabs, and enjoy a beautifully organized browsing experience — complete with dark mode and intuitive controls.
   preview:
     image: /images/smart-tabs-hero.png
     width: 3434
     height: 1782
     alt: Smart Tabs panel — tabs grouped by site, search bar, and widgets
-    caption: Group by domain, search, quick links, and widgets
+    caption: New tab dashboard — grouped tabs, widgets, Quick Dial, and search
   primary_label: Install
-  secondary_label: See features
+  secondary_label: Features
   secondary_anchor: "#features"
   widgets_label: Widgets
   widgets_anchor: "#widgets"
+  donate_label: Donate
 
 highlights:
-  - Search open tabs by title or URL
-  - Groups for projects and contexts
-  - Sessions and a calm, minimal UI
+  - Create your own widgets and use the Quick Dial panel
+  - Tabs grouped by site — search, pin, switch, or close in one place
+  - Light and dark themes, duplicate cleanup, and more
 
 features:
-  lead: Everything you need to stay calm with dozens or hundreds of tabs — in one extension panel.
+  section_title: Key features
   items:
-    - title: Smart grouping
-      description: Group tabs by meaning — project, research, learning. Less chaos in the tab strip.
-    - title: Instant search
-      description: Type part of a title or URL — the list narrows to what matters. No manual hunting.
-    - title: Sessions and snapshots
-      description: Save sets of tabs and reopen them when the task comes back.
-    - title: Minimal noise
-      description: A clean UI and predictable behaviour — focus on the task, not the extension.
+    - title: Create your own widgets
+      description: Build and arrange widgets on your new tab dashboard.
+    - title: Quick Dial panel
+      description: Fast access to the sites you use most.
+    - title: Grouped by domain
+      description: Open tabs are intelligently grouped by domain, giving you a clean, structured view of your browsing activity.
+    - title: Favicons and color coding
+      description: Each tab group shows the site’s favicon and is color-coded for faster identification.
+    - title: Switch tabs instantly
+      description: Jump to any open tab from the dashboard with a single click.
+    - title: Close tabs or whole groups
+      description: Close individual tabs or entire groups in one click.
+    - title: Pin favorites
+      description: Pin favorite domains or groups for easy access.
+    - title: Search and filter
+      description: Quickly find tabs by title, URL, or domain using the built-in search and filter tools.
+    - title: Light and dark themes
+      description: Toggle between light and dark themes to match your environment or preference.
+    - title: Remove duplicates
+      description: Clean up duplicate tabs so your list stays tidy.
+    - title: Wake the cat
+      description: Wake up the cat to show old visited tabs.
 
 widgets:
   title: Widgets

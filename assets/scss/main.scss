@@ -166,6 +166,15 @@ body {
       background: rgba(241, 196, 15, 0.16);
     }
   }
+
+  &--icon-leading {
+    gap: 0.35rem;
+  }
+}
+
+.btn__icon {
+  font-weight: 700;
+  line-height: 1;
 }
 
 // Hero
@@ -869,13 +878,17 @@ body {
 }
 
 .donate-wallets {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+  gap: 2.5rem 1.75rem;
   margin: 1.35rem auto 0;
-  max-width: 22rem;
+  width: 100%;
   text-align: center;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .donate-wallet {
@@ -884,6 +897,10 @@ body {
   align-items: center;
   gap: 1rem;
   width: 100%;
+  max-width: 17rem;
+  min-height: 0;
+  margin-inline: auto;
+  height: 100%;
 }
 
 .donate-wallet__eyebrow {
@@ -899,15 +916,22 @@ body {
 
 .donate-wallet__qr {
   display: block;
+  flex-shrink: 0;
   width: 100%;
-  max-width: 280px;
+  max-width: 220px;
+  max-height: 220px;
   height: auto;
+  object-fit: contain;
   border-radius: $radius-lg;
   background: #fff;
 }
 
 .donate-wallet__address {
   margin: 0;
+  margin-top: auto;
+  width: 100%;
+  flex-shrink: 0;
+  min-height: 3em; // ~2 lines at line-height 1.5 — evens out short vs wrapped addresses
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 0.8rem;
   line-height: 1.5;

@@ -15,6 +15,7 @@
           <a class="btn btn--primary" href="{{ .primary_anchor | default ($.Site.Params.store_url | default "#install") }}">{{ .primary_label }}</a>
           <a class="btn btn--secondary" href="{{ .secondary_anchor | default "#features" }}">{{ .secondary_label }}</a>
           <a class="btn btn--secondary" href="{{ .widgets_anchor | default "#widgets" }}">{{ .widgets_label | default "Widgets" }}</a>
+          <a class="btn btn--secondary btn--icon-leading" href="{{ $.Site.Params.donate_url | relURL }}"><span class="btn__icon" aria-hidden="true">$</span>{{ .donate_label | default "Donate" }}</a>
         </div>
         {{- end }}
         {{- with .Params.highlights }}
@@ -65,7 +66,7 @@
   <section id="features" class="section section--features">
     <div class="shell">
       <header class="section__head">
-        <h2 class="section__title">Features</h2>
+        <h2 class="section__title">{{ .Params.features.section_title | default "Features" }}</h2>
         {{- with .Params.features.lead }}
         <p class="section__lead">{{ . }}</p>
         {{- end }}
