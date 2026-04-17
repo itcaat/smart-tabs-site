@@ -1,41 +1,64 @@
 {{ define "main" }}
-{{- $ct := .Site.Params.donate.cloudtips_url -}}
-{{- $np := .Site.Params.donate.nowpayments_url -}}
 <a class="skip-link" href="#main">Skip to content</a>
 <main id="main" class="page-doc">
   <div class="shell page-doc__inner">
     <p class="page-doc__back"><a class="page-doc__back-link" href="{{ "/" | relURL }}">← Home</a></p>
     <article class="prose prose--doc">
       <h1 class="prose--doc__title">{{ .Title }}</h1>
-      {{ .Content }}
-      <p class="donate-smart">
-        <a
-          id="donate-smart"
-          class="btn btn--primary btn--lg"
-          href="{{ $np }}"
-          data-url-ru="{{ $ct }}"
-          data-url-default="{{ $np }}"
-        >Donate</a>
-        <span class="donate-smart__hint">Opens CloudTips when your browser language is Russian; otherwise NowPayments.</span>
-      </p>
-      <h2>All options</h2>
-      <div class="donate-actions">
-        <a class="btn btn--secondary btn--lg" href="{{ $ct }}">CloudTips</a>
-        <a class="btn btn--secondary btn--lg" href="{{ $np }}">NowPayments</a>
+      <div class="donate-wallets">
+        <section class="donate-wallet" aria-labelledby="donate-ton-label">
+          <p id="donate-ton-label" class="eyebrow donate-wallet__eyebrow">The Open Network (TON)</p>
+          <img
+            class="donate-wallet__qr"
+            src="{{ "images/donate-ton-qr.png" | relURL }}"
+            width="462"
+            height="568"
+            alt="QR code for TON (The Open Network) wallet"
+          />
+          <p class="donate-wallet__address">UQCClEtpwge4Dcbs5zAumJz5b0nmeC3jKndp9gBaeqa_f4mY</p>
+        </section>
+
+        <section class="donate-wallet" aria-labelledby="donate-btc-label">
+          <p id="donate-btc-label" class="eyebrow donate-wallet__eyebrow">Bitcoin (BTC)</p>
+          <p class="donate-wallet__kit">Ne Kit</p>
+          <img
+            class="donate-wallet__qr"
+            src="{{ "images/donate-btc.jpg" | relURL }}"
+            width="869"
+            height="1276"
+            alt="QR code for Bitcoin (BTC) wallet — Ne Kit"
+          />
+          <p class="donate-wallet__address">bc1qhs43agejkslu6wt2uyl3rf8xakscx3uregfxzt</p>
+        </section>
+
+        <section class="donate-wallet" aria-labelledby="donate-eth-label">
+          <p id="donate-eth-label" class="eyebrow donate-wallet__eyebrow">Ethereum (ETH)</p>
+          <p class="donate-wallet__kit">Ne Kit</p>
+          <img
+            class="donate-wallet__qr"
+            src="{{ "images/donate-eth.jpg" | relURL }}"
+            width="853"
+            height="1280"
+            alt="QR code for Ethereum (ETH) wallet — Ne Kit"
+          />
+          <p class="donate-wallet__address">0x86196350884719862fd322176E8407aAcb85AFa1</p>
+        </section>
+
+        <section class="donate-wallet" aria-labelledby="donate-usdt-label">
+          <p id="donate-usdt-label" class="eyebrow donate-wallet__eyebrow">Tether (USDT) · TRC-20</p>
+          <p class="donate-wallet__kit">Ne Kit</p>
+          <img
+            class="donate-wallet__qr"
+            src="{{ "images/donate-usdt-trc20.jpg" | relURL }}"
+            width="857"
+            height="1280"
+            alt="QR code for Tether USDT on TRON (TRC-20) — Ne Kit"
+          />
+          <p class="donate-wallet__address">TMogXEMQT154J981acDajC6fEvVvBUetvN</p>
+        </section>
       </div>
     </article>
   </div>
 </main>
-<script>
-(function () {
-  var el = document.getElementById('donate-smart');
-  if (!el) return;
-  var ru = el.getAttribute('data-url-ru');
-  var dflt = el.getAttribute('data-url-default');
-  var langs = typeof navigator.languages !== 'undefined' ? navigator.languages : [navigator.language || ''];
-  var pickRu = langs.some(function (l) { return /^ru/i.test(l || ''); });
-  el.setAttribute('href', pickRu ? ru : dflt);
-})();
-</script>
 {{ partial "site-footer.html" . }}
 {{ end }}

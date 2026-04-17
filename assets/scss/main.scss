@@ -868,27 +868,52 @@ body {
   }
 }
 
-.donate-smart {
-  margin: 1.75rem 0 0;
+.donate-wallets {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  gap: 0.65rem;
-
-  .donate-smart__hint {
-    display: block;
-    font-size: 0.86rem;
-    color: $muted;
-    line-height: 1.45;
-    max-width: 28rem;
-  }
+  align-items: center;
+  gap: 2.5rem;
+  margin: 1.35rem auto 0;
+  max-width: 22rem;
+  text-align: center;
 }
 
-.donate-actions {
+.donate-wallet {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
   gap: 1rem;
-  margin: 0.75rem 0 0;
+  width: 100%;
+}
+
+.donate-wallet__eyebrow {
+  margin: 0;
+}
+
+.donate-wallet__kit {
+  margin: 0;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: $muted;
+}
+
+.donate-wallet__qr {
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  height: auto;
+  border-radius: $radius-lg;
+  background: #fff;
+}
+
+.donate-wallet__address {
+  margin: 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: $text;
+  word-break: break-all;
+  user-select: all;
 }
 
 // Footer

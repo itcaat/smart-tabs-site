@@ -11,10 +11,6 @@ disableKinds = ['taxonomy', 'term']
   donate_url = '/smart-tabs-site/donate/'
   contact_email = ''
 
-[params.donate]
-  cloudtips_url = 'https://pay.cloudtips.ru/p/ca4ff0b0'
-  nowpayments_url = 'https://nowpayments.io/donation/itcaat'
-
 [params.footer]
   product = 'Smart Tabs'
   tagline = 'Smarter tabs in the browser.'
